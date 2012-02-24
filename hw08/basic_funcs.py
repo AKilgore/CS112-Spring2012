@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+
 # Create a greeter
 #    create a greeter that says hello to someone in all lower case.  Use print statements
 #
@@ -12,6 +13,10 @@
 #   hello, world
 
 # def greeter(name):
+
+def greeter(name):
+    name = str(name)
+    print "hello,", name.lower() #Prints "hello," then the name converted into lower-case.
 
 
 # Draw a box
@@ -32,23 +37,37 @@
 
 # def box(w,h):
 
+def box(width, height):
 
+# Checking if the users inputs are compatible dimensions for the box.
+    if width <= 0 or height <= 0 or type(width)!=int or type(height)!=int:
+        print "Error: Invalid Dimensions"
+        return
 
-# ADVANCED
-# Draw a Festive Tree
-#    draw a festive tree based on the specifications.  You will need to discover the arguments 
-#    and behavior by running the unittests to see where it fails.  Return a string, do not print.
-#
-#  ex:
-#    >>> print tree()
-#        *
-#        ^
-#       ^-^
-#      ^-^-^
-#     ^-^-^-^
-#    ^-^-^-^-^
-#       | |
-#       | |
+# Printing the first "+" and "|" for the box.
+    corner1 = "+"
+    edge1 = "|"
 
-# def tree()
+#If the width is greater than or equal to 2 (meaning it would have 2 "+"s and "|"s)
+    if width >= 2:
+        corner2 = "+"
+        edge2 = "|"
+
+    else:
+        corner2 = ""
+        edge2 = ""
+
+    topgate = "-" * (width - 2)
+    rowspace = " " * (width - 2)
+    top = corner1 + topgate + corner2 #Sets the variable for the code for the top of the box.
+    row = edge1 + rowspace + edge2 #Sets the variable for the row for the box.
+    
+    print top #Prints the top of the box (needs to be printed for the top and the bottom) so twice.
+    for i in range(height - 2):
+        print row #Prints the row.
+    if height > 1:
+        print top #Prints the bottom of the box (same as the top).
+
+##!!!! We never really went over functions in class, this was really difficult.
+
 
