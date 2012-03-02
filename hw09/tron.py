@@ -166,7 +166,7 @@ while end_game == False:
                running = False
 
           pygame.display.flip()
-          clock.tick(250)
+          clock.tick(200)
 
      # Exiting the game using the escape key after the game is over.
      for event in pygame.event.get():
