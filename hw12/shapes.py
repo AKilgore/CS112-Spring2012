@@ -21,19 +21,45 @@
 #     >>> print c.area()
 #     28.274333882308138
 #     
+#!/usr/bin/env python
 
-# Advanced Section
-# ---------------------------------------------------------
-# Add one more shape type: a polygon.  Polygons are created
-# from a list of at least 3 points.
-#
-# >>> Polygon((0,0), (3,4), (0,4))
-# >>> Polygon((0,0), (2,0), (2,2), (0,2))
-#
-# Perimeter should be easy to calculate, for area, use 
-# method 1 on this site for finding the area of an irregular 
-# polygon:
-#   http://www.mathopenref.com/polygonirregulararea.html
-# 
-# You can find the area of a triangle with Heron's formula:
-#   http://www.mathopenref.com/heronsformula.html
+import math
+
+# Abstract Shape Class
+class Shape(object):
+    def __init__(self):
+        pass
+
+    def area(self):
+        pass
+
+    def perimeter(self):
+        pass
+
+# Rectangle Class
+class Rect(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return self.width*2 + self.height*2
+
+# Square Class
+class Square(Rect):
+    def __init__(self,side):
+        Rect.__init__(self, side, side)
+
+# Circle Class
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return (self.radius**2) * math.pi
+
+    def perimeter(self):
+        return (math.pi*2) * self.radius
