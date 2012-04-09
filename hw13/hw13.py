@@ -48,7 +48,7 @@ class Player(Sprite):
 
 ## Player Bullets ##
 class Player_Bullets(Sprite):
-    def __init__(self, ship, group):
+    def __init__(self, group):
         Sprite.__init__(self)
         self.image, self.rect = load_graphics('player_bullets.png')
         self.rect.x = ship.rect.x + 30
