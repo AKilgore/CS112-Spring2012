@@ -150,13 +150,24 @@ class QuadTreeNode(object):
         else:
             self.se.add_point(point)
 
-    # def get_points(self):
-    
+    def get_points(self):
+        if self.data is None and not self.is_split:
+            return []
 
-    # def get_rects(node, rects=None):
-    #   if rects is None:
-    #       rects = []
+        elif self.data is True and not self.is_split:
+            return [self.data]
+
+        else:
+            return self.nw.get_points() + self.ne.get_points() + self.sw.get_points() +self.se.get_points()
+
+    def get_rects(self, rects=None):
+       if rects is None and not self.is_split:
+           rects = []
+
+       elif rects is True and not self.is_split:
+           return [self.data]
+
+       else:
+           return self.nw.get_rects() + self.ne.get_rects() + self.sw.get_rects() +self.se.get_rects()
 
 
-    # Advanced
-    # def collidepoint(self, point):
