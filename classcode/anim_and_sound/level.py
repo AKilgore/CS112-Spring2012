@@ -17,6 +17,7 @@ class Level(object):
 
     def __init__(self, size):
         self.bounds = Rect((0,0), size)
+        self.bg_tile = load_image("grass")
 
     def draw(self, surf):
         self.draw_background(surf)
@@ -24,7 +25,11 @@ class Level(object):
         surf.blit(self.player.image, self.player.rect)
 
     def draw_background(self, surf):
-        surf.fill((80, 80, 80))
+        tw, th = self.bg_tile.get_size()
+        sw, sh = surf.get_size()
+        for y in range (0, sh, th):
+            for x in range (0, sw, tw):
+                surf.blit(self.bg_tile, (x,y))
 
     def restart(self):
         self.player = Player()

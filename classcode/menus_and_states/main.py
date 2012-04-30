@@ -10,9 +10,9 @@ def main():
     # create game
     game = Game(screen)
     try:
-        game.run()
+        app.run()
     except KeyboardInterrupt:
-        game.quit()
+        app.quit()
 
 if __name__ == "__main__":
     main()

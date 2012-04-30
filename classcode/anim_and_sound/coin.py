@@ -2,7 +2,33 @@ from random import randrange
 
 from pygame import Surface
 from pygame.sprite import Sprite, Group
+from anim import Anmation, AnimationFrames
+from spritesheet import Spritesheet
 
+COIN_FRAMES = None
+COIN_SPRITES = None
+
+class CoinAnimation(Animation):
+    duration = 25
+
+    def __init__(self):
+        global COIN_FRAMES, COIN_SPRITES
+
+        if COIN_FRAMES is None:
+            COIN_FRAMES = AnimationFrames([
+                    (self.duration, (0,0)),
+                    (self.duration, (1,0)),
+                    (self.duration, (2,0)),
+                    (self.duration, (3,0)),
+                    (self.duration, (4,0)),
+                    (self.duration, (5,0)),
+                    (self.duration, (6,0)),
+                    (self.duration, (7,0))
+                    ])
+        if COIN_SPRITES is None:
+            COIN_SPRITES = SpriteSheet("coin", (8,1))
+        
+        Animation.__init__(self, COIN_SPRITES, COIN_FRAMES)
 
 ## Coin
 class Coin(Sprite):

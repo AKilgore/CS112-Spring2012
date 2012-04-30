@@ -6,7 +6,7 @@ game.py
 import pygame
 from pygame.locals import *
 from pygame.sprite import spritecollide, GroupSingle
-
+from app import ApplicationState
 from level import Level
 
 class Game(object):
